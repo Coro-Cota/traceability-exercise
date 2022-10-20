@@ -42,7 +42,7 @@ module.exports = {
     },
 
     getFortune: (req, res) => {
-        
+        rollbar.log('fortune was gotten')
         let randomI = Math.floor(Math.random() * fortunes.length);
         let randomFortune = fortunes[randomI];
 
@@ -54,7 +54,7 @@ module.exports = {
     },
 
     addFortune: (req,res) =>{
-
+        rollbar.log('fortune was added')
         let { fortunetxt } = req.body
 
         fortunes.push(fortunetxt)
@@ -62,6 +62,7 @@ module.exports = {
     },
 
     deleteFortune: (req,res) => {
+        rollbar.log('fortune was deleted')
         fortunes.pop()
         res.status(200).send(fortunes)
     }
