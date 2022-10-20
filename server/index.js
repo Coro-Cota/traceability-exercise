@@ -1,11 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-const path = require('path')
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+const { getHTML, getJS } = require('./controller')
+
+app.get('/', getHTML);
+app.get('/js', getJS);
 
 const { 
     getCompliment,

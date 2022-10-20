@@ -1,8 +1,19 @@
+const path = require('path')
+
 const fortunes = ["Happiness begins with facing life with a smile and a wink.", "Happy life is just in front of you.", "He who expects no gratitude shall never be disappointed.", "If a true sense of value is to be yours it must come through service."];
 
 const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
 
 module.exports = {
+
+    getHTML: (req, res) => {
+        console.log(__dirname);
+        res.sendFile(path.join(__dirname, '../client/index.html'));
+    },
+
+    getJS: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/main.js'));
+    },
 
     getCompliment: (req, res) => {
               
